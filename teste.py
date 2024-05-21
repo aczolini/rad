@@ -20,6 +20,11 @@ connection = sqlite3.connect("teste.db")
 #Cria o cursos e cria a tabela
 cursor = connection.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS Tabela1 (nome TEXT, cpf TEXT, estado TEXT)")
+
+with open('config.txt', 'r') as arquivo:
+    linhas = arquivo.readlines()
+    elementos = [linha.strip() for linha in linhas]
+
 def VerificarCPF(CPF):
     #CPF deve ser na forma "123.456.789-10"
     for trecho in CPF.split("."):
