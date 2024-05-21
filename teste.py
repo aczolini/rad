@@ -52,6 +52,16 @@ def Main():
     e1 = tkinter.Entry(root)
     e1.bind('<Key>', lambda x:textoEntrada.set(e1.get()+x.char))
     e1.pack()
+
+    label_cpf = tkinter.Label(root, text="CPF")
+    label_cpf.pack()
+    cpf = tkinter.Entry(root)
+    cpf.pack()
+    
+    label_estado = tkinter.Label(root, text="Estado")
+    label_estado.pack()
+    estado = tkinter.Entry(root)
+    estado.pack()
     
     test2 = tkinter.Button(root, text="Salvar")
     test2['command'] = funcExemplo  #alterar para chamar outra função
