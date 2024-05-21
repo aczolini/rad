@@ -2,6 +2,7 @@ import tkinter
 from tkinter import messagebox as mb
 from tkinter import ttk
 import sqlite3
+import re
 
 #começar com tela com um botão e um entry (nome)- v1
 #adicionar mais duas entrys (cpf e estado) e suas labels - v2
@@ -20,13 +21,15 @@ connection = sqlite3.connect("teste.db")
 #Cria o cursos e cria a tabela
 cursor = connection.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS Tabela1 (nome TEXT, cpf TEXT, estado TEXT)")
-def VerificarCPF(CPF):
-    #CPF deve ser na forma "123.456.789-10"
-    for trecho in CPF.split("."):
-        if len(trecho)!=3:
-            return False
-        else:
-            return True
+
+
+def verificar_cpf(cpf):
+    # Expressão regular para verificar o formato do CPF
+    padrao = re.compile(r'\d{3}\.\d{3}\.\d{3}-\d{2}')
+    if padrao.match(cpf):
+        return True
+    else:
+        return False
 
 def inserevalores():
     #Insere linha na tabela
