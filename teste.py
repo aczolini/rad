@@ -22,9 +22,11 @@ connection = sqlite3.connect("teste.db")
 cursor = connection.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS Tabela1 (nome TEXT, cpf TEXT, estado TEXT)")
 
+with open('config.txt', 'r') as arquivo:
+    conteudo = arquivo.read()
+    elementos = conteudo.strip().split(';')
 
 def verificar_cpf(cpf):
-    # Expressão regular para verificar o formato do CPF
     padrao = re.compile(r'\d{3}\.\d{3}\.\d{3}-\d{2}')
     if padrao.match(cpf):
         return True
