@@ -35,6 +35,11 @@ def verificar_cpf(cpf):
 
 def inserevalores():
     #Insere linha na tabela
+    if estado.get() not in elementos:
+        return
+    valor = cpf.get()
+    if not verificar_cpf(valor):
+        return
     query = '''INSERT INTO Tabela1 VALUES (?,?,?)'''
     cursor.execute(query, (e1.get(), cpf.get(), estado.get()))
     connection.commit()
@@ -87,3 +92,5 @@ def Main():
     root.mainloop()  #loop principal, impede o código de seguir e permite capturar inputs
 
 Main()
+
+connection.close()
