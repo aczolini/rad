@@ -28,9 +28,11 @@ def VerificarCPF(CPF):
         else:
             return True
 
-def inserevalores(Valor1, Valor2):
+def inserevalores():
     #Insere linha na tabela
-    cursor.execute("INSERT INTO Tabela1 VALUES ('"+Valor1+"', '"+Valor2+"')")
+    query = '''INSERT INTO Tabela1 VALUES (?,?,?)'''
+    cursor.execute(query, (e1.get(), cpf.get(), estado.get()))
+    connection.commit()
 
 def pegavalores():
     #Pega valores da tabela
@@ -53,22 +55,25 @@ def Main():
     label.pack()
 
     textoEntrada = tkinter.StringVar()
+    global e1
     e1 = tkinter.Entry(root)
     e1.bind('<Key>', lambda x:textoEntrada.set(e1.get()+x.char))
     e1.pack()
 
     label_cpf = tkinter.Label(root, text="CPF")
     label_cpf.pack()
+    global cpf
     cpf = tkinter.Entry(root)
     cpf.pack()
 
     label_estado = tkinter.Label(root, text="Estado")
     label_estado.pack()
+    global estado
     estado = tkinter.Entry(root)
     estado.pack()
     
     test2 = tkinter.Button(root, text="Salvar")
-    test2['command'] = funcExemplo  #alterar para chamar outra função
+    test2['command'] = inserevalores  #alterar para chamar outra função
     test2.pack()
 
     root.iconify() #Minimiza a tela
