@@ -76,6 +76,11 @@ def Main():
     test2['command'] = inserevalores  #alterar para chamar outra função
     test2.pack()
 
+    opcoes = ['clt', 'mei', 'socio']
+    opcao_selecionada = tkinter.StringVar(root)
+    dropdown = tkinter.OptionMenu(root, opcao_selecionada, *opcoes)
+    dropdown.pack()
+
     root.iconify() #Minimiza a tela
     root.update()
     root.deiconify() #Maximiza a tela
