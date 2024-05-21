@@ -44,6 +44,10 @@ def Main():
     root = tkinter.Tk()
     root.title("Trabalho RAD")
     root.resizable(False, False)
+
+    img = tkinter.PhotoImage(file="fundo.PNG")
+    label_fundo = tkinter.Label(root, image=img)
+    label_fundo.place(x=0, y=0, relwidth=1, relheight=1)
     
     label = tkinter.Label(root, text="Nome")
     label.pack()
@@ -57,7 +61,7 @@ def Main():
     label_cpf.pack()
     cpf = tkinter.Entry(root)
     cpf.pack()
-    
+
     label_estado = tkinter.Label(root, text="Estado")
     label_estado.pack()
     estado = tkinter.Entry(root)
