@@ -1,5 +1,1 @@
-Rio de Janeiro
-Sao Paulo
-Rio Grande do Sul
-Minas Gerais
-Santa Catarina
+Rio de Janeiro;Sao Paulo;Rio Grande do Sul;Minas Gerais;Santa Catarina;Parana;Ceara;Amazonas;Goias;Espirito santo
